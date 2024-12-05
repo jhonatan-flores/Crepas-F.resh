@@ -7,25 +7,51 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
-            background-color: #f8f9fa;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            font-family: 'Arial', sans-serif;
         }
         .form-container {
             max-width: 500px;
-            margin: 50px auto;
-            padding: 20px;
+            margin: 60px auto;
+            padding: 30px;
             background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
         .form-container h2 {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            font-weight: bold;
+            color: #e63946;
+        }
+        .btn-primary {
+            background-color: #e63946;
+            border-color: #e63946;
+        }
+        .btn-primary:hover {
+            background-color: #d62828;
+            border-color: #d62828;
+        }
+        .btn-secondary {
+            background-color: #457b9d;
+            border-color: #457b9d;
+        }
+        .btn-secondary:hover {
+            background-color: #1d3557;
+            border-color: #1d3557;
+        }
+        .text-center a {
+            color: #e63946;
+            text-decoration: none;
+        }
+        .text-center a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="form-container">
-            <h2 class="text-center">Registro</h2>
+            <h2 class="text-center">Registro en Crepa Fresh</h2>
             <form action="registro-completado.html" method="POST">
                 <div class="form-group">
                     <label for="nombre">Nombre completo</label>
@@ -49,7 +75,7 @@
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">Registrarse</button>
             </form>
-            <p class="text-center mt-3">
+            <p class="text-center mt-4">
                 ¿Ya tienes una cuenta? <a href="login.html">Inicia sesión</a>
             </p>
             <a href="index.html" class="btn btn-secondary btn-block">Regresar a Inicio</a>

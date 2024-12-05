@@ -6,29 +6,78 @@
     <title>Categorías | Crepa Fresh</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+        }
+
         .category-card {
             border: none;
-            border-radius: 8px;
+            border-radius: 15px;
             overflow: hidden;
             transition: transform 0.3s, box-shadow 0.3s;
+            background-color: #fff;
         }
+
         .category-card:hover {
             transform: scale(1.05);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
         }
+
         .category-card img {
-            height: 200px;
+            height: 250px;
             object-fit: cover;
+            transition: all 0.3s ease;
         }
+
+        .category-card:hover img {
+            transform: scale(1.1);
+        }
+
         .category-title {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: bold;
+            color: #ff6f61;
+        }
+
+        .category-card p {
+            font-size: 1rem;
+            color: #6c757d;
+        }
+
+        .btn-primary {
+            background-color: #ff473f;
+            border: none;
+            font-weight: bold;
+        }
+
+        .btn-primary:hover {
+            background-color: #ff6f61;
+        }
+
+        .back-btn {
+            background-color: #6c757d;
+            color: white;
+            font-weight: bold;
+            border-radius: 20px;
+            padding: 12px 30px;
+        }
+
+        .back-btn:hover {
+            background-color: #5a6268;
+        }
+
+        .section-title {
+            color: #333;
+            font-size: 2.2rem;
+            font-weight: bold;
+            margin-bottom: 30px;
         }
     </style>
 </head>
 <body>
     <div class="container my-5">
-        <h2 class="text-center mb-4">Nuestras Categorías de Crepas</h2>  
+        <h2 class="section-title text-center mb-5">Nuestras Categorías de Crepas</h2>  
         <div class="row">
             <!-- Categoría Saladas -->
             <div class="col-md-4 mb-4">
@@ -66,7 +115,7 @@
         </div>
         
         <div class="text-center">
-            <a href="index.html" class="btn btn-secondary mt-3">Regresar a Inicio</a>
+            <a href="index.html" class="btn back-btn mt-4">Regresar a Inicio</a>
         </div>
     </div>
 </body>
