@@ -2,27 +2,72 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Categorías | Cerpas F.resh</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categorías | Crepa Fresh</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .category-card {
+            border: none;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .category-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .category-card img {
+            height: 200px;
+            object-fit: cover;
+        }
+        .category-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <div class="container my-5">
-        <h2>Nuestras Crepas</h2>
+        <h2 class="text-center mb-4">Nuestras Categorías de Crepas</h2>  
         <div class="row">
-            <div class="col-md-4">
-                <h3>Saladas</h3>
-                <p>Crepas llenas de sabores intensos y deliciosos.</p>
+            <!-- Categoría Saladas -->
+            <div class="col-md-4 mb-4">
+                <div class="card category-card">
+                    <img src="./img/salado.jpeg" class="card-img-top" alt="Crepa Saladas">
+                    <div class="card-body text-center">
+                        <h5 class="category-title">Saladas</h5>
+                        <p>Crepas llenas de sabores intensos y deliciosos, ideales para almuerzos o cenas.</p>
+                        <a href="saladas.html" class="btn btn-primary">Ver más</a>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-4">
-                <h3>Dulces</h3>
-                <p>La opción perfecta para los amantes de lo dulce.</p>
+            <!-- Categoría Dulces -->
+            <div class="col-md-4 mb-4">
+                <div class="card category-card">
+                    <img src="./img/crepadu1.jpeg" class="card-img-top" alt="Crepa Dulce">
+                    <div class="card-body text-center">
+                        <h5 class="category-title">Dulces</h5>
+                        <p>Perfectas para los amantes de lo dulce, con rellenos irresistibles.</p>
+                        <a href="dulces.html" class="btn btn-primary">Ver más</a>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-4">
-                <h3>Vegetarianas</h3>
-                <p>Para quienes prefieren opciones más saludables.</p>
+            <!-- Categoría Vegetarianas -->
+            <div class="col-md-4 mb-4">
+                <div class="card category-card">
+                    <img src="./img/vegetariano.jpeg" class="card-img-top" alt="Crepa Vegetarianas">
+                    <div class="card-body text-center">
+                        <h5 class="category-title">Vegetarianas</h5>
+                        <p>Opciones saludables y deliciosas, hechas con ingredientes frescos.</p>
+                        <a href="vegetarianas.html" class="btn btn-primary">Ver más</a>
+                    </div>
+                </div>
             </div>
         </div>
-        <a href="index.html" class="btn btn-primary mt-3">Regresar a Inicio</a>
+        
+        <div class="text-center">
+            <a href="index.html" class="btn btn-secondary mt-3">Regresar a Inicio</a>
+        </div>
     </div>
 </body>
 </html>

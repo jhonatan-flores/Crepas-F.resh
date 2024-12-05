@@ -2,25 +2,58 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Catálogo | Cerpas F.resh</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro | Crepa Fresh</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .form-container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-container h2 {
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
-    <div class="container my-5">
-        <h2>Catálogo Completo</h2>
-        <div class="row">
-            <!-- Productos -->
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="assets/crepa-salada.jpg" class="card-img-top" alt="Crepa Salada">
-                    <div class="card-body">
-                        <h5 class="card-title">Crepa Salada</h5>
-                        <p class="card-text">Ideal para un almuerzo delicioso.</p>
-                    </div>
+    <div class="container">
+        <div class="form-container">
+            <h2 class="text-center">Registro</h2>
+            <form action="registro-completado.html" method="POST">
+                <div class="form-group">
+                    <label for="nombre">Nombre completo</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
                 </div>
-            </div>
+                <div class="form-group">
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Ingresa tu correo electrónico" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Crea una contraseña" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Teléfono</label>
+                    <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="Ingresa tu número de teléfono" required>
+                </div>
+                <div class="form-group">
+                    <label for="direccion">Dirección</label>
+                    <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Ingresa tu dirección" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Registrarse</button>
+            </form>
+            <p class="text-center mt-3">
+                ¿Ya tienes una cuenta? <a href="login.html">Inicia sesión</a>
+            </p>
+            <a href="index.html" class="btn btn-secondary btn-block">Regresar a Inicio</a>
         </div>
-        <a href="index.html" class="btn btn-primary mt-3">Regresar a Inicio</a>
     </div>
 </body>
 </html>
