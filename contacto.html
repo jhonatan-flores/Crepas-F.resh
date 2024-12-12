@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto | Crepa Fresh</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <style>
         body {
             background: linear-gradient(to right, #ff9a9e, #fad0c4);
@@ -22,6 +21,7 @@
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             margin: 20px auto;
             max-width: 800px;
+            min-height: 400px; /* Ajuste para que el cuadro sea lo suficientemente alto */
         }
         .btn-social {
             font-size: 16px;
@@ -61,21 +61,16 @@
         h2, h3 {
             color: #e63946;
         }
+        .social-media {
+            text-align: center;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h2>¡Contáctanos!</h2>
         <p class="mb-4">Descubre las últimas novedades de <strong>Crepa Fresh</strong> en nuestras redes sociales:</p>
-
-        <!-- Redes sociales -->
-        <section class="social-media">
-            <a href="https://www.instagram.com/crepasf.resh/" class="btn btn-social btn-instagram">Instagram</a>
-            <a href="https://x.com/CrepasFresh" class="btn btn-social btn-twitter">Twitter</a>
-            <a href="https://www.facebook.com/profile.php?id=61561492947429&mibextid=ZbWKwL" class="btn btn-social btn-facebook">Facebook</a>
-            <a href="https://www.tiktok.com/@crepas.f..resh?_t=8qQo6Uk3oRi&_r=1" class="btn btn-social btn-tiktok">TikTok</a>
-            <a href="https://youtube.com/@crepas-cf9?si=AAOvcpkdPsgM7UVF" class="btn btn-social btn-youtube">YouTube</a>
-        </section>
 
         <!-- Formulario de contacto -->
         <form id="contactForm">
@@ -103,51 +98,52 @@
                 <!-- Datos dinámicos -->
             </tbody>
         </table>
+
+        <!-- Redes sociales -->
+        <section class="social-media">
+            <a href="https://www.instagram.com/crepasf.resh/" class="btn btn-social btn-instagram">Instagram</a>
+            <a href="https://x.com/CrepasFresh" class="btn btn-social btn-twitter">Twitter</a>
+            <a href="https://www.facebook.com/profile.php?id=61561492947429&mibextid=ZbWKwL" class="btn btn-social btn-facebook">Facebook</a>
+            <a href="https://www.tiktok.com/@crepas.f..resh?_t=8qQo6Uk3oRi&_r=1" class="btn btn-social btn-tiktok">TikTok</a>
+            <a href="https://youtube.com/@crepas-cf9?si=AAOvcpkdPsgM7UVF" class="btn btn-social btn-youtube">YouTube</a>
+        </section>
     </div>
 
-    <!-- Scripts -->
     <script>
-        // Inicializar EmailJS
-        (function() {
-            emailjs.init("YOUR_USER_ID"); // Reemplaza con tu User ID de EmailJS
-        })();
+        let editingRow = null;
 
         const form = document.getElementById('contactForm');
         const table = document.getElementById('contactTable').querySelector('tbody');
 
         // Manejar envío del formulario
         form.addEventListener('submit', (e) => {
-            e.preventDefault();
+            e.preventDefault(); // Evita que la página se recargue
 
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
 
             if (name && email) {
-                const row = table.insertRow();
-                row.innerHTML = `
-                    <td>${name}</td>
-                    <td>${email}</td>
-                    <td>
-                        <button class="btn btn-warning btn-sm" onclick="editRow(this)">✏️</button>
-                        <button class="btn btn-danger btn-sm" onclick="deleteRow(this)">🗑️</button>
-                    </td>
-                `;
-
-                // Enviar correo electrónico
-                const templateParams = {
-                    name: name,
-                    email: email,
-                };
-
-                emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", templateParams)
-                    .then(() => {
-                        alert("Correo enviado correctamente.");
-                        form.reset(); // Limpiar formulario
-                    })
-                    .catch((error) => {
-                        alert("Error al enviar el correo. Intenta nuevamente.");
-                        console.error(error);
-                    });
+                if (editingRow) {
+                    // Si estamos editando, actualizamos la fila
+                    editingRow.cells[0].textContent = name;
+                    editingRow.cells[1].textContent = email;
+                    editingRow = null;
+                    form.querySelector('button').textContent = 'ENVIAR'; // Reset botón a 'Enviar'
+                } else {
+                    // Si no estamos editando, agregamos una nueva fila
+                    const row = table.insertRow();
+                    row.innerHTML = `
+                        <td>${name}</td>
+                        <td>${email}</td>
+                        <td>
+                            <button class="btn btn-warning btn-sm" onclick="editRow(this)">✏️</button>
+                            <button class="btn btn-danger btn-sm" onclick="deleteRow(this)">🗑️</button>
+                        </td>
+                    `;
+                }
+                // Limpiar los campos del formulario después de enviar
+                document.getElementById('name').value = '';
+                document.getElementById('email').value = '';
             } else {
                 alert('Por favor, completa todos los campos.');
             }
@@ -162,7 +158,8 @@
             document.getElementById('name').value = name;
             document.getElementById('email').value = email;
 
-            table.deleteRow(row.rowIndex - 1);
+            editingRow = row; // Guardar la fila para editarla después
+            form.querySelector('button').textContent = 'REENVIAR'; // Cambiar el texto del botón
         }
 
         // Eliminar fila
